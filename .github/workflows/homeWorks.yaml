@@ -41,7 +41,7 @@
         },
         {
           "name": "upload coverage",
-          "run": "./coveralls report coveralls.out"
+          "run": "echo ${COVERALLS_REPO_TOKEN}; COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN} ./coveralls report coveralls.out"
         }
       ]
     }
