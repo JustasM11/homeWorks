@@ -38,6 +38,10 @@
         {
           "name": "upload coverage",
           "run": "curl -L https://coveralls.io/coveralls-linux.tar.gz | tar -xz && ./coveralls -rlaeBR00zYoY6nb0EIiYXEzCgHuB5Ef0BY report coveralls.out"
+        },
+        {
+          "name": "purge camo",
+          "uses": "kevincobain2000/action-camo-purge@v1"
         }
       ]
     }
