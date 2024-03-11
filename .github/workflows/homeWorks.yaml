@@ -36,12 +36,8 @@
           "run": "cd ./build && make"
         },
         {
-          "name": "download and unpack coveralls",
-          "run": "curl -L https://coveralls.io/coveralls-linux.tar.gz | tar -xz && ./coveralls -rlaeBR00zYoY6nb0EIiYXEzCgHuB5Ef0BY report coveralls.out"
-        },
-        {
           "name": "upload coverage",
-          "run": "echo ${COVERALLS_REPO_TOKEN}; COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN} ./coveralls report coveralls.out"
+          "run": "curl -L https://coveralls.io/coveralls-linux.tar.gz | tar -xz && ./coveralls -rlaeBR00zYoY6nb0EIiYXEzCgHuB5Ef0BY report coveralls.out"
         }
       ]
     }
