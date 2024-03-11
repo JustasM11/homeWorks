@@ -17,11 +17,11 @@
         },
         {
           "name": "apt-get update",
-          "run": "apt-get update"
+          "run": "sudo apt-get update"
         },
         {
           "name": "apt-get install",
-          "run": "apt-get -y install g++ make cmake git"
+          "run": "sudo apt-get -y install g++ make cmake git"
         },
         {
           "name": "clone googletest",
