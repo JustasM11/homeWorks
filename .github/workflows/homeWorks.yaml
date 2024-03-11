@@ -1,22 +1,45 @@
-name: homeWorks
-on:
-  push:
-      branches: [ master ]
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - name: apt-get update        
-      run: apt-get update
-      - name: apt-get install
-      run: apt-get -y install g++ make cmake git
-      - name: clone googletest
-      run: git clone --depth 1  https://github.com/google/googletest.git
-      -name: configure
-      run: mkdir -p ./build && cd ./build && cmake ..
-      - name: make
-      run: make
-      - name: upload coverage      
-      run: bash <(curl -s https://codecov.io/bash)
+{
+  "name": "homeWorks",
+  "on": {
+    "push": {
+      "branches": [
+        "master"
+      ]
+    }
+  },
+  "jobs": {
+    "build-and-test" : {
+      "runs-on": "ubuntu-latest",
+      "steps": [
+        {
+          "name": "Check out repository code",
+          "uses": "actions/checkout@v4"
+        },
+        {
+          "name": "apt-get update",
+          "run": "apt-get update"
+        },
+        {
+          "name": "apt-get install",
+          "run": "apt-get -y install g++ make cmake git"
+        },
+        {
+          "name": "clone googletest",
+          "run": "git clone --depth 1 https://github.com/google/googletest.git"
+        },
+        {
+          "name": "configure",
+          "run": "mkdir -p ./build && cd ./build && cmake .."
+        },
+        {
+          "name": "make",
+          "run": "make"
+        },
+        {
+          "name": "upload coverage",
+          "run": "bash <(curl -s https://codecov.io/bash)"
+        }
+      ]
+    }
+  }
+}
