@@ -157,6 +157,24 @@ add_custom_target(run_all_tests11_02 ALL
 
 #########################################
 
+# homeWork11_03 executable
+add_executable(homeWork11_03 homeWork11_03/main.cpp homeWork11_03/lib.cpp)
+target_include_directories(homeWork11_03 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/homeWork11_03)
+
+# homeWork11_03 Unit tests executable
+add_executable(tests11_03 homeWork11_03/tests.cpp homeWork11_03/lib.cpp
+)
+add_dependencies(tests11_03 homeWork11_03)
+target_include_directories(tests11_03 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/homeWork11_03)
+target_link_libraries(tests11_03 gtest gtest_main)
+
+# homeWork11_03 Unit tests runner
+add_custom_target(run_all_tests11_03 ALL
+    COMMAND ./tests11_03
+    DEPENDS tests11_03
+)
+
+#########################################
 # ======== Coverage =========
 add_custom_target(coverage ALL)
 
@@ -166,4 +184,13 @@ add_custom_command(TARGET coverage
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-add_dependencies(coverage run_all_tests09_01 run_all_tests09_02 run_all_tests09_03 run_all_tests09_04 run_all_tests09_05 run_all_tests11_01 run_all_tests11_02)
+add_dependencies(coverage
+    run_all_tests09_01
+    run_all_tests09_02
+    run_all_tests09_03
+    run_all_tests09_04
+    run_all_tests09_05
+    run_all_tests11_01
+    run_all_tests11_02
+    run_all_tests11_03
+)
