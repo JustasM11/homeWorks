@@ -139,11 +139,11 @@ add_custom_target(run_all_tests11_01 ALL
 #########################################
 
 # ======== Coverage =========
-add_custom_target(coverage)
+add_custom_target(coverage ALL)
 
 add_custom_command(TARGET coverage
     POST_BUILD
-    COMMAND  ${CMAKE_CURRENT_SOURCE_DIR}/coverage.sh
+    COMMAND  ${CMAKE_CURRENT_SOURCE_DIR}/coverage_local.sh
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 

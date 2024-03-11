@@ -21,7 +21,7 @@
         },
         {
           "name": "apt-get install",
-          "run": "sudo apt-get -y install g++ make cmake git"
+          "run": "sudo apt-get -y install g++ make cmake git gcovr"
         },
         {
           "name": "clone googletest",
@@ -37,7 +37,7 @@
         },
         {
           "name": "upload coverage",
-          "run": "bash <(curl -s https://codecov.io/bash)"
+          "run": "curl -L https://coveralls.io/coveralls-linux.tar.gz | tar -xz && ./coveralls report coveralls.out"
         }
       ]
     }
