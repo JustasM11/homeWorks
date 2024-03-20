@@ -15,7 +15,6 @@ int getRepeatingNumber(int numbers[15]) {
     if (shift < 0) {
       shift = 15 - -shift;
     }
-    std::cout << "shift: " << shift << std::endl;
 
     if (shift > 14 or shift < 0) {
       throw std::runtime_error("Numbers are not sequential");
