@@ -175,6 +175,69 @@ add_custom_target(run_all_tests11_03 ALL
 )
 
 #########################################
+
+# homeWork12_01 executable
+add_executable(homeWork12_01 homeWork12_01/main.cpp)
+
+#########################################
+
+# homeWork12_02 executable
+add_executable(homeWork12_02 homeWork12_02/main.cpp homeWork12_02/lib.cpp)
+target_include_directories(homeWork12_02 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/homeWork12_02)
+
+# homeWork12_02 Unit tests executable
+add_executable(tests12_02 homeWork12_02/tests.cpp homeWork12_02/lib.cpp
+)
+add_dependencies(tests12_02 homeWork12_02)
+target_include_directories(tests12_02 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/homeWork12_02)
+target_link_libraries(tests12_02 gtest gtest_main)
+
+# homeWork12_02 Unit tests runner
+add_custom_target(run_all_tests12_02 ALL
+    COMMAND ./tests12_02
+    DEPENDS tests12_02
+)
+
+#########################################
+
+# homeWork12_03 executable
+add_executable(homeWork12_03 homeWork12_03/main.cpp homeWork12_03/lib.cpp)
+target_include_directories(homeWork12_03 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/homeWork12_03)
+
+# homeWork12_03 Unit tests executable
+add_executable(tests12_03 homeWork12_03/tests.cpp homeWork12_03/lib.cpp
+)
+add_dependencies(tests12_03 homeWork12_03)
+target_include_directories(tests12_03 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/homeWork12_03)
+target_link_libraries(tests12_03 gtest gtest_main)
+
+# homeWork12_03 Unit tests runner
+add_custom_target(run_all_tests12_03 ALL
+    COMMAND ./tests12_03
+    DEPENDS tests12_03
+)
+
+#########################################
+
+# homeWork12_04 executable
+add_executable(homeWork12_04 homeWork12_04/main.cpp homeWork12_04/lib.cpp)
+target_include_directories(homeWork12_04 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/homeWork12_04)
+
+# homeWork12_04 Unit tests executable
+add_executable(tests12_04 homeWork12_04/tests.cpp homeWork12_04/lib.cpp
+)
+add_dependencies(tests12_04 homeWork12_04)
+target_include_directories(tests12_04 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/homeWork12_04)
+target_link_libraries(tests12_04 gtest gtest_main)
+
+# homeWork12_04 Unit tests runner
+add_custom_target(run_all_tests12_04 ALL
+    COMMAND ./tests12_04
+    DEPENDS tests12_04
+)
+
+#########################################
+
 # ======== Coverage =========
 add_custom_target(coverage ALL)
 
@@ -193,4 +256,7 @@ add_dependencies(coverage
     run_all_tests11_01
     run_all_tests11_02
     run_all_tests11_03
+    run_all_tests12_02
+    run_all_tests12_03
+    run_all_tests12_04
 )
